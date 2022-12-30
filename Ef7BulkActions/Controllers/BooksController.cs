@@ -101,7 +101,7 @@ namespace Ef7BulkActions.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
-            var count = await _context.Books.Where(b => b.Id > id).ExecuteDeleteAsync();
+            var count = await _context.Books.Where(b => b.Id == id).ExecuteDeleteAsync();
                  
             if (count == 0)
                 return NotFound();
